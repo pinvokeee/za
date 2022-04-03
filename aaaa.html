@@ -1,0 +1,114 @@
+
+<html>
+    <head>
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+
+        <div class="sheet" style="font-family: 'メイリオ';padding: 5px;">
+
+        </div>
+
+       <script type="text/javascript" src="aaaa.js"></script> 
+
+       <script>
+
+            const def_sheet = 
+            {
+                fields: [
+                    {
+                        caption: "ケース番号",
+                        type: "input",
+                        isRequired: true,
+                        children:
+                        [
+                            {
+                                caption: "test",
+                                type: "input"
+                            },
+                            {
+                                caption: "abc",
+                                type: "input",
+                                children:
+                                [
+                                    {
+                                        caption: "dwad",
+                                        type: "input"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        caption: "a",
+                        text: "aaa",
+                        type: "checkbox",
+                        selecter: 
+                        [
+                            {
+                                caption: "test1",
+                                IsChildEnabledReverse: false,
+                                children:
+                                [
+                                    {
+                                        caption: "aaaabbb",
+                                        type: "input",
+                                        isRequired: true,
+                                    }   
+                                ]
+                            },
+                            {
+                                caption: "test2",        
+                            },
+                            {
+                                caption: "test3",        
+                            },
+                        ],
+                        isRequired: false,
+                    },
+
+                    {
+                        caption: "b",
+                        type: "radio",
+                        selecter: 
+                        [
+                            {                                
+                                caption: "rardio1",
+                            },
+                            {
+                                caption: "rardio2",
+                            },
+                            {
+                                caption: "rardio3",
+                            }
+                        ],
+                        isRequired: true
+                    }, 
+                ]       
+            };
+
+            let sheet = new CheckSheet();
+
+            sheet.LoadFromJsonString(JSON.stringify(def_sheet));
+
+            console.log($(".sheet"));
+
+            let view = new CheckSheetViewElement(
+            {
+                ViewElement: $(".sheet")[0],
+                SourceSheet: sheet
+            });
+
+       </script>
+
+
+    </body>
+
+</html>
